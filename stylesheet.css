@@ -1,0 +1,11 @@
+.container {
+    width: 500px;
+    height: 500px;
+    display: grid;
+}
+
+.div-grid {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+}

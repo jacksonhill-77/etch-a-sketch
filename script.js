@@ -4,27 +4,34 @@ let userChosenWidth = 10;
 
 // Selects the grid div and styles its height, width, and display
 
-function styleContainer(className) {
-    let container = document.getElementsByClassName(className);
-    container = container[0];
-    container.style.width = "500px";
-    container.style.height = "100%";
-    container.style.display = "inline-block";
-    return container
+function selectFirstInClass(className) {
+    let element = document.getElementsByClassName(className);
+    element = element[0];
+    return element
 }
 
-function createGridDivs(squaresPerSide, containerName) {
-    totalSquares = Math.pow(squaresPerSide)
-    for (let i = 0; i < totalSquares; i++) {
-        let divGrid = document.createElement('div')
-        divGrid.style.width = '20px'
-        divGrid.style.height = '20px'
-        divGrid.style.backgroundColor = 'black'
-        divGrid.setAttribute('class', 'div-grid')
-        containerName.appendChild(divGrid)
+function styleContainer(containerName) {
+    // containerName.style.
+}
+
+function createGridDivs(squaresPerSide) {
+
+    container = selectFirstInClass("container")
+
+    totalSquares = Math.pow(squaresPerSide, 2)
+
+    for (let column = 0; column < squaresPerSide; column++) {
+        for (let row = 0; row < squaresPerSide; row++) {
+            const cell = document.createElement('div');
+            cell.classList.add('div-grid')
+            cell.style.gridColumnStart = column + 1;
+            cell.style.gridColumnEnd = column + 1;
+            cell.style.gridRowStart = row + 1;
+            cell.style.gridRowEnd = row + 1;
+            container.appendChild(cell)
+        }
+
     }
 }
 
-container = styleContainer("container")
-
-createGridDivs(userChosenWidth, container)
+createGridDivs(userChosenWidth)
