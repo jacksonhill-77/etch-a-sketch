@@ -11,12 +11,13 @@ function selectFirstInClass(className) {
 }
 
 function styleContainer(containerName) {
-    // containerName.style.
+    containerName.style.grid
 }
 
 function createGridDivs(squaresPerSide) {
 
     container = selectFirstInClass("container")
+    styleContainer(container)
 
     totalSquares = Math.pow(squaresPerSide, 2)
 
