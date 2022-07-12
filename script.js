@@ -11,7 +11,15 @@ function selectFirstInClass(className) {
 }
 
 function styleContainer(containerName) {
-    containerName.style.grid
+    // containerName.style.grid
+}
+
+function mouseEnterEffect(cell) {
+    cell.classList.add('mouse-over');
+}
+
+function mouseLeaveEffect(cell) {
+    cell.classList.add('div-grid');
 }
 
 function createGridDivs(squaresPerSide) {
@@ -29,6 +37,8 @@ function createGridDivs(squaresPerSide) {
             cell.style.gridColumnEnd = column + 1;
             cell.style.gridRowStart = row + 1;
             cell.style.gridRowEnd = row + 1;
+            cell.addEventListener('mouseenter', (e) => mouseEnterEffect(cell))
+            cell.addEventListener('mouseleave', (e) => mouseLeaveEffect(cell))
             container.appendChild(cell)
         }
 
