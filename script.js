@@ -6,12 +6,21 @@ function selectFirstInClass(className) {
     return element
 }
 
-function mouseEnterEffect(cell) {
-    cell.classList.add('mouse-over');
+function randomRGBNumber(min, max) {
+    let randomNumber = min + Math.floor(Math.random() * (max - min + 1))
+    return randomNumber
 }
 
-function mouseLeaveEffect(cell) {
-    cell.classList.add('div-grid');
+function randomRGB() {
+    const r = randomRGBNumber(0, 255)
+    const b = randomRGBNumber(0, 255)
+    const g = randomRGBNumber(0, 255)
+    const rgb = `rgb(${r},${g},${b})`
+    return rgb
+}
+
+function mouseEnterEffect(cell) {
+    cell.classList.add('mouse-over')
 }
 
 function createResetButton() {
@@ -20,7 +29,6 @@ function createResetButton() {
     let squaresPerSide = 0
 
     container = selectFirstInClass("container")
-    styleContainer(container)
 
     button.addEventListener("click", () => {
         while (i < 2) {
@@ -54,7 +62,6 @@ function createResetButton() {
                 cell.style.gridRowStart = row + 1;
                 cell.style.gridRowEnd = row + 1;
                 cell.addEventListener('mouseenter', (e) => mouseEnterEffect(cell))
-                cell.addEventListener('mouseleave', (e) => mouseLeaveEffect(cell))
                 container.appendChild(cell)
             }
         }

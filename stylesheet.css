@@ -37,6 +37,9 @@
 .mouse-over {
     width: auto;
     height: auto;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
 }
 
 .div-grid {
